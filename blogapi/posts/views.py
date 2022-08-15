@@ -1,16 +1,17 @@
+from asyncio.proactor_events import _ProactorBaseWritePipeTransport
 from django.shortcuts import render
 from .serializers import PostSerializer
 from rest_framework.generics import ListCreateAPIView, RetrieveUpdateDestroyAPIView
-from .models import Post
+from .models import Posts
 
 # Create your views here.
 
 class PostList(ListCreateAPIView):
-    queryset = Post.objects.all()
+    queryset = Posts.objects.all()
     serializer_class = PostSerializer
 
 class PostDetail(RetrieveUpdateDestroyAPIView):
-    queryset = Post.objects.all()
+    queryset = Posts.objects.all()
     serializer_class = PostSerializer
 
 
